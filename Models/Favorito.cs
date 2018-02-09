@@ -7,5 +7,7 @@ namespace CursoMVC.Models
 {
 	public class Favorito
 	{
+		public int usuarioId { get; set; }
+		public int productoId { get; set; }
 	}
 }

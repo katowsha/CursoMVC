@@ -7,5 +7,11 @@ namespace CursoMVC.Models
 {
 	public class Promocion
 	{
+		public int promocionId { get; set; }
+		public int tipo { get; set; }
+		public string nombre { get; set; }
+		public decimal descuento { get; set; }
+		public DateTime fechaInicio { get; set; }
+		public DateTime fechaFin { get; set; }
 	}
 }

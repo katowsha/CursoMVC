@@ -20,6 +20,8 @@ namespace CursoMVC.Models
 		[Required(ErrorMessage = "Proporcione una imagen")]
 		public byte[] imagen { get; set; }
 
+		public string tipoImagen { get; set; }
+
 		[Required(ErrorMessage = "Debe tener una descripcion")]
 		[DisplayName("Descripcion")]
 		[StringLength(250)]
