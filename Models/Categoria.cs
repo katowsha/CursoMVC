@@ -9,6 +9,7 @@ namespace CursoMVC.Models
 	{
 		public int categoria { get; set; }
 		public string nombre { get; set; }
+		public DateTime fechaCreacion { get; set; }
 
 		//Relacion a varios productos
 		public virtual ICollection<Producto> productos { get; set; }

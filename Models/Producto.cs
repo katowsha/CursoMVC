@@ -30,7 +30,7 @@ namespace CursoMVC.Models
 		[DataType(DataType.Currency)]
 		[Range(0, 100000)]
 		[ValidaMultiplode(50)]
-		public decimal precio { get; set; }
+		public decimal precioLista { get; set; }
 
 		public int categoriaId { get; set; }
 
