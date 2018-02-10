@@ -12,7 +12,7 @@ namespace CursoMVC.Models
 
 		public int productoId { get; set; }
 
-		[Required(ErrorMessage = "Debe tener un nombre")]
+		[Required(ErrorMessage = "Proporcione un nombre")]
 		[DisplayName("Nombre")]
 		[StringLength(250)]
 		public string nombre { get; set; }
@@ -22,12 +22,12 @@ namespace CursoMVC.Models
 
 		public string tipoImagen { get; set; }
 
-		[Required(ErrorMessage = "Debe tener una descripcion")]
+		[Required(ErrorMessage = "Proporcione tener una descripcion")]
 		[DisplayName("Descripcion")]
 		[StringLength(250)]
 		public string descripcion { get; set; }
 
-		[Required(ErrorMessage = " Debe tener precio")]
+		[Required(ErrorMessage = " Proporcione tener precio")]
 		[DisplayName("Precio de lista")]
 		[DataType(DataType.Currency)]
 		[Range(0, 100000)]
