@@ -12,5 +12,11 @@ namespace CursoMVC.Models
 		public bool abierto { get; set; }
 		public DateTime fechaVenta { get; set; }
 		public decimal total { get; set; }
+
+		//Relacion de carritos a un usuario
+		public virtual Usuario usuario { get; set; }
+
+		//Relacion de carrito a muchos detalles de carrito
+		public virtual ICollection<CarritoDetalle> carritosDetalles { get; set; }
 	}
 }

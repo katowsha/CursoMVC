@@ -46,8 +46,18 @@ namespace CursoMVC.Models
 		[DisplayName("Fecha de creacion")]
 		public DateTime fechaCreacion { get; set; }
 
-		public virtual Categoria categoria {get;set;}
+		//Relacion 1 categoria por producto
+		public virtual Categoria categoria { get; set; }
+
+		//Relacion muchos comentarios a 1 producto
+		public virtual ICollection<Comentario> comentarios {get;set;}
+
 	}
+
+
+
+
+
 
 	//Clase validar multiplo de param
 	[AttributeUsage(AttributeTargets.Property)]

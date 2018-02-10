@@ -12,5 +12,6 @@ namespace CursoMVC.Models
 		public int cantidad { get; set; }
 		public decimal precioUnitario { get; set; }
 		public decimal total { get; set; }
+
 	}
 }

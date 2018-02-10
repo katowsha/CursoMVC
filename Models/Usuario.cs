@@ -15,5 +15,11 @@ namespace CursoMVC.Models
 		public string telefono { get; set; }
 		public string email { get; set; }
 		public decimal totalVendido { get; set; }
+
+		//Relacion un usuario para muchos carritos
+		public virtual ICollection<Carrito> Carritos { get; set; }
+		
+		//Relacion un usuario para muchos favoritos
+		public virtual ICollection<Favorito> Favoritos { get; set; }
 	}
 }

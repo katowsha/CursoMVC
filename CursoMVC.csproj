@@ -104,10 +104,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Carrito.cs" />
+    <Compile Include="Models\CarritoDetalle.cs" />
     <Compile Include="Models\Categoria.cs" />
+    <Compile Include="Models\Comentario.cs" />
     <Compile Include="Models\CursoMVCContext.cs" />
+    <Compile Include="Models\Favorito.cs" />
     <Compile Include="Models\Initializer.cs" />
     <Compile Include="Models\Producto.cs" />
+    <Compile Include="Models\Promocion.cs" />
+    <Compile Include="Models\PromocionDetalle.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
