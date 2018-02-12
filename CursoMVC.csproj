@@ -96,13 +96,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Imagenes\colores.jpg" />
+    <Content Include="Imagenes\mochila.jpg" />
+    <Content Include="Imagenes\tijeras.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoriasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProductoesController.cs" />
+    <Compile Include="Controllers\ProductoController.cs" />
+    <Compile Include="Controllers\ReporteLog.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -128,11 +132,6 @@
     <Content Include="Views\Categorias\Details.cshtml" />
     <Content Include="Views\Categorias\Edit.cshtml" />
     <Content Include="Views\Categorias\Index.cshtml" />
-    <Content Include="Views\Productoes\Create.cshtml" />
-    <Content Include="Views\Productoes\Delete.cshtml" />
-    <Content Include="Views\Productoes\Details.cshtml" />
-    <Content Include="Views\Productoes\Edit.cshtml" />
-    <Content Include="Views\Productoes\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -142,7 +141,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Imagenes\" />
     <Folder Include="Views\Home\" />
     <Folder Include="Views\Producto\" />
     <Folder Include="Views\Usuario\" />

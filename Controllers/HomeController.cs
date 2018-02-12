@@ -11,7 +11,7 @@ namespace CursoMVC.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return RedirectToAction("Index","Productoes");
+            return RedirectToAction("Index","Categoria");
         }
     }
 }

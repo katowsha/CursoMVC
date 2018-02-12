@@ -15,12 +15,14 @@ namespace CursoMVC.Controllers
         }
 
         // GET: Producto/Details/5
+		[OutputCache(Duration = 60)]
         public ActionResult Details(int id)
         {
             return View();
         }
 
         // GET: Producto/Create
+		[Authorize]
         public ActionResult Create()
         {
             return View();
@@ -45,7 +47,7 @@ namespace CursoMVC.Controllers
         // GET: Producto/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return Content("Estamos trabajando biach");
         }
 
         // POST: Producto/Edit/5
