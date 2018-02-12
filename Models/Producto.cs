@@ -27,7 +27,7 @@ namespace CursoMVC.Models
 		[StringLength(250)]
 		public string descripcion { get; set; }
 
-		[Required(ErrorMessage = " Proporcione tener precio")]
+		[Required(ErrorMessage = " Proporcione un precio")]
 		[DisplayName("Precio de lista")]
 		[DataType(DataType.Currency)]
 		[Range(0, 100000)]
