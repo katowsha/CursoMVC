@@ -12,11 +12,11 @@ namespace CursoMVC.Models
 	{
 		[Key]
 		[Column(Order = 1)]
-		public int carritoId { get; set; }
+		public int carritoID { get; set; }
 
 		[Key]
 		[Column(Order = 2)]
-		public int productoId { get; set; }
+		public int productoID { get; set; }
 
 		[Required]
 		public int cantidad { get; set; }

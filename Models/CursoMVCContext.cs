@@ -8,7 +8,11 @@ namespace CursoMVC.Models
 {
 	public class CursoMVCContext : DbContext
 	{
-
+		public CursoMVCContext()
+		{
+			Database.SetInitializer(new Initializer());
+		}
+			
 		public DbSet<Categoria> Categorias
 		{ get; set; }
 		public DbSet<Producto> Productos

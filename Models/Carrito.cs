@@ -14,10 +14,10 @@ namespace CursoMVC.Models
 			carritosDetalles = new HashSet<CarritoDetalle>();
 		}
 
-		public int carritoId { get; set; }
+		public int carritoID { get; set; }
 
 		[Required]
-		public int usuarioId { get; set; }
+		public int usuarioID { get; set; }
 
 		[Required]
 		public bool abierto { get; set; }

@@ -11,7 +11,7 @@ namespace CursoMVC.Models
 	{
 		[Key]
 		[Column(Order = 1)]
-		public int promocionDetalleId { get; set; }
+		public int promocionDetalleID { get; set; }
 
 		[Key]
 		[Column(Order = 2)]

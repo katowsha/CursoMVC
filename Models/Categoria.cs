@@ -13,7 +13,7 @@ namespace CursoMVC.Models
 		{
 			productos = new HashSet<Producto>();
 		}
-		public int categoriaId { get; set; }
+		public int categoriaID { get; set; }
 
 		[Required(ErrorMessage ="Proporcione un nombre.")]
 		[DisplayName("Nombre")]
