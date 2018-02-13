@@ -36,7 +36,7 @@ namespace CursoMVC.Models
 		[DisplayName("Precio de lista")]
 		[DataType(DataType.Currency)]
 		[Range(0, 100000)]
-		[ValidaMultiplode(50)]
+		[ValidaMultiploDe(50)]
 		public decimal precioLista { get; set; }
 
 		[DisplayName("Categoría")]
@@ -69,18 +69,19 @@ namespace CursoMVC.Models
 
 	//Clase validar multiplo de param
 	[AttributeUsage(AttributeTargets.Property)]
-	public class ValidaMultiplode : ValidationAttribute
+	public class ValidaMultiploDe : ValidationAttribute
 	{
 		public double Valor { get; set; }
-	
-		public ValidaMultiplode(double n)
+
+		public ValidaMultiploDe(double n)
 		{
 			Valor = n;
-			ErrorMessage = "El precio no es multiplo de " + Valor;
+			ErrorMessage = "El precio no es múltiplo de " + Valor;
 		}
+
 		public override bool IsValid(object value)
 		{
-			var valorAEvaluar = (double)value;
+			var valorAEvaluar = Convert.ToDouble(value);
 			if ((valorAEvaluar % Valor) == 0)
 				return true;
 			else

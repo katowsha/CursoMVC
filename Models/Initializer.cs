@@ -7,7 +7,7 @@ using System.IO;
 
 namespace CursoMVC.Models
 {
-	public class Initializer : CreateDatabaseIfNotExists<CursoMVCContext>
+	public class Initializer : DropCreateDatabaseIfModelChanges<CursoMVCContext>
 	{
 		protected override void Seed(CursoMVCContext context)
 		{
