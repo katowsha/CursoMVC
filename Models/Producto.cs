@@ -14,7 +14,7 @@ namespace CursoMVC.Models
 			comentarios = new HashSet<Comentario>();
 		}
 
-		public int productoID { get; set; }
+		public int productoId { get; set; }
 
 		[Required(ErrorMessage = "Proporcione un nombre")]
 		[DisplayName("Nombre")]

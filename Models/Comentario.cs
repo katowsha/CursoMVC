@@ -9,9 +9,9 @@ namespace CursoMVC.Models
 {
 	public class Comentario
 	{
-		public int comentarioID { get; set; }
-		public int usuarioID { get; set; }
-		public int productoID { get; set; }
+		public int comentarioId { get; set; }
+		public int usuarioId { get; set; }
+		public int productoId { get; set; }
 		[Required]
 		public string texto { get; set; }
 

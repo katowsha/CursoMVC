@@ -13,7 +13,7 @@ namespace CursoMVC.Models
 		{
 			promosDetalles = new HashSet<PromocionDetalle>();
 		}
-		public int promocionID { get; set; }
+		public int promocionId { get; set; }
 
 		[Required]
 		public int tipo { get; set; }

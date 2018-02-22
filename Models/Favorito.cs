@@ -11,10 +11,10 @@ namespace CursoMVC.Models
 	{
 		[Key]
 		[Column(Order = 1)]
-		public int usuarioID { get; set; }
+		public int usuarioId { get; set; }
 		[Key]
 		[Column(Order = 2)]
-		public int productoID { get; set; }
+		public int productoId { get; set; }
 
 		//Relacionado a un producto
 		public virtual Producto producto { get; set; }

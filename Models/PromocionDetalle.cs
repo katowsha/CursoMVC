@@ -11,11 +11,11 @@ namespace CursoMVC.Models
 	{
 		[Key]
 		[Column(Order = 1)]
-		public int promocionDetalleID { get; set; }
+		public int promocionDetalleId { get; set; }
 
 		[Key]
 		[Column(Order = 2)]
-		public int productoID { get; set; }
+		public int productoId { get; set; }
 
 		//Relacion una promo detalle a una promo
 		public virtual Promocion promocion { get; set; }
