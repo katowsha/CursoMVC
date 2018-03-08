@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace CursoMVC.Models
 {
@@ -12,6 +12,7 @@ namespace CursoMVC.Models
 		public Usuario()
 		{
 			carritos = new HashSet<Carrito>();
+			favoritos = new HashSet<Favorito>();
 		}
 
 		public int usuarioID { get; set; }
@@ -40,9 +41,13 @@ namespace CursoMVC.Models
 		[DisplayName("Correo electrónico")]
 		public string email { get; set; }
 
+		[DisplayName("Total vendido")]
 		public decimal totalVendido { get; set; }
 
 		//Relacionado a varios carritos.
 		public virtual ICollection<Carrito> carritos { get; set; }
+
+		//Relacionado a varios favoritos.
+		public virtual ICollection<Favorito> favoritos { get; set; }
 	}
 }

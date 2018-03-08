@@ -1,0 +1,42 @@
+﻿@model CursoMVC.Models.Categoria
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Categoria</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.fechaCreacion)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.fechaCreacion)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.categoriaID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

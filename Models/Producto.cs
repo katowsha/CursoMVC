@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace CursoMVC.Models
 {
 	public class Producto
 	{
+		public Producto()
+		{
+			comentarios = new HashSet<Comentario>();
+		}
+
 		public int productoID { get; set; }
 
 		[Required(ErrorMessage = "Proporcione un nombre.")]
@@ -30,7 +35,7 @@ namespace CursoMVC.Models
 		[Required(ErrorMessage = "Proporcione un precio.")]
 		[DisplayName("Precio de Lista")]
 		[Range(0, 10000)]
-		[ValidaMultiploDe(50)]
+		[ValidaMultiploDe(5)]
 		public decimal precioLista { get; set; }
 
 		[DisplayName("Categoría")]
@@ -52,10 +57,11 @@ namespace CursoMVC.Models
 		//Relacionado a una categoría.
 		public virtual Categoria categoria { get; set; }
 
+		//Relacionado a varios comentarios.
+		public virtual ICollection<Comentario> comentarios { get; set; }
+
 	}
 
-
-	//Clase validar multiplo de param
 	[AttributeUsage(AttributeTargets.Property)]
 	public class ValidaMultiploDe : ValidationAttribute
 	{
@@ -69,11 +75,12 @@ namespace CursoMVC.Models
 
 		public override bool IsValid(object value)
 		{
-			var valorAEvaluar = (double)value;
+			var valorAEvaluar = Convert.ToDouble(value);
 			if ((valorAEvaluar % Valor) == 0)
 				return true;
 			else
 				return false;
 		}
+
 	}
 }
