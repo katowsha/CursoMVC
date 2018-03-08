@@ -15,9 +15,6 @@ namespace CursoMVC
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-			//Database.SetInitializer<CursoMVCContext>(new Initializer());
-			using (var db = new CursoMVCContext())
-				db.Database.Initialize(true);
 		}
     }
 }

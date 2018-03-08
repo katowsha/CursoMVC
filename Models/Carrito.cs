@@ -9,32 +9,22 @@ namespace CursoMVC.Models
 {
 	public class Carrito
 	{
-		public Carrito()
-		{
-			carritosDetalles = new HashSet<CarritoDetalle>();
-		}
-
-		public int carritoId { get; set; }
+		public int carritoID { get; set; }
 
 		[Required]
-		public int usuarioId { get; set; }
+		public int usuarioID { get; set; }
 
 		[Required]
 		public bool abierto { get; set; }
 
-		[Required]
 		[DataType(DataType.DateTime)]
 		[DisplayName("Fecha de Venta")]
-		[DisplayFormat(DataFormatString ="{0:dd/MM/yyy}")]
+		[DisplayFormat(DataFormatString = "{0:MM/dd/yy}")]
 		public DateTime fechaVenta { get; set; }
 
-		[Required]
 		public decimal total { get; set; }
 
-		//Relacion de carritos a un usuario
+		//Relacionado a un usuario.
 		public virtual Usuario usuario { get; set; }
-
-		//Relacion de carrito a muchos detalles de carrito
-		public virtual ICollection<CarritoDetalle> carritosDetalles { get; set; }
 	}
 }

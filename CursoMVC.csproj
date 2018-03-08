@@ -105,24 +105,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\CategoriasController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProductoController.cs" />
-    <Compile Include="Controllers\ReporteLog.cs" />
-    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Carrito.cs" />
-    <Compile Include="Models\CarritoDetalle.cs" />
     <Compile Include="Models\Categoria.cs" />
-    <Compile Include="Models\Comentario.cs" />
-    <Compile Include="Models\CursoMVCContext.cs" />
-    <Compile Include="Models\Favorito.cs" />
-    <Compile Include="Models\Initializer.cs" />
     <Compile Include="Models\Producto.cs" />
-    <Compile Include="Models\Promocion.cs" />
-    <Compile Include="Models\PromocionDetalle.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -143,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\" />
     <Folder Include="Views\Home\" />
     <Folder Include="Views\Producto\" />
     <Folder Include="Views\Usuario\" />
@@ -158,7 +147,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>58177</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

@@ -9,39 +9,33 @@ namespace CursoMVC.Models
 {
 	public class Producto
 	{
-		public Producto()
-		{
-			comentarios = new HashSet<Comentario>();
-		}
+		public int productoID { get; set; }
 
-		public int productoId { get; set; }
-
-		[Required(ErrorMessage = "Proporcione un nombre")]
+		[Required(ErrorMessage = "Proporcione un nombre.")]
 		[DisplayName("Nombre")]
 		[StringLength(250)]
 		public string nombre { get; set; }
 
-		[Required(ErrorMessage = "Proporcione una imagen")]
+		[Required(ErrorMessage = "Proporcione una imagen.")]
 		public byte[] imagen { get; set; }
 
 		public string tipoImagen { get; set; }
 
-		[Required(ErrorMessage = "Proporcione tener una descripcion")]
-		[DisplayName("Descripcion")]
+		[Required(ErrorMessage = "Proporcione una descripción.")]
+		[DisplayName("Descripción")]
 		[StringLength(250)]
 		[DataType(DataType.MultilineText)]
 		public string descripcion { get; set; }
 
-		[Required(ErrorMessage = " Proporcione un precio")]
-		[DisplayName("Precio de lista")]
-		[DataType(DataType.Currency)]
-		[Range(0, 100000)]
+		[Required(ErrorMessage = "Proporcione un precio.")]
+		[DisplayName("Precio de Lista")]
+		[Range(0, 10000)]
 		[ValidaMultiploDe(50)]
 		public decimal precioLista { get; set; }
 
 		[DisplayName("Categoría")]
 		[Required(ErrorMessage = "Seleccione una categoría.")]
-		public int categoriaId { get; set; }
+		public int categoriaID { get; set; }
 
 		[DisplayName("Activo")]
 		public bool activo { get; set; }
@@ -50,21 +44,15 @@ namespace CursoMVC.Models
 		public bool enAlmacen { get; set; }
 
 		[DataType(DataType.DateTime)]
-		[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
-		[DisplayName("Fecha de creacion")]
+		[DisplayFormat(DataFormatString = "{0:MM/dd/yy}")]
+		[DisplayName("Fecha de creación")]
 		public DateTime fechaCreacion { get; set; }
 
-		//Relacion 1 categoria por producto
+
+		//Relacionado a una categoría.
 		public virtual Categoria categoria { get; set; }
 
-		//Relacion muchos comentarios a 1 producto
-		public virtual ICollection<Comentario> comentarios {get;set;}
-
 	}
-
-
-
-
 
 
 	//Clase validar multiplo de param
@@ -81,7 +69,7 @@ namespace CursoMVC.Models
 
 		public override bool IsValid(object value)
 		{
-			var valorAEvaluar = Convert.ToDouble(value);
+			var valorAEvaluar = (double)value;
 			if ((valorAEvaluar % Valor) == 0)
 				return true;
 			else

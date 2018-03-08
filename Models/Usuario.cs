@@ -11,41 +11,38 @@ namespace CursoMVC.Models
 	{
 		public Usuario()
 		{
-			Carritos = new HashSet<Carrito>();
-			Favoritos = new HashSet<Favorito>();
+			carritos = new HashSet<Carrito>();
 		}
 
-		public int usuarioId { get; set; }
+		public int usuarioID { get; set; }
 
-		[Required(ErrorMessage = "Proporcione el nombre")]
+		[Required(ErrorMessage = "Proporcione el nombre.")]
 		[DisplayName("Nombre")]
 		[StringLength(50)]
 		public string nombre { get; set; }
 
-		[Required(ErrorMessage = "Proporcione un nickname")]
+		[Required(ErrorMessage = "Proporcione un nombre de usuario.")]
 		[StringLength(50)]
 		public string usuario { get; set; }
 
-		[Required(ErrorMessage = "Propocione una contraseña")]
-		[StringLength(15)]
+		[Required(ErrorMessage = "Proporcione una contraseña.")]
+		[StringLength(10)]
 		public string password { get; set; }
 
-		[DisplayName("Direccion")]
+		[DisplayName("Dirección")]
+		[StringLength(250)]
 		public string direccion { get; set; }
 
-		[DisplayName("Telefono")]
+		[DisplayName("Teléfono")]
+		[StringLength(20)]
 		public string telefono { get; set; }
 
-		[DisplayName("e-mail")]
+		[DisplayName("Correo electrónico")]
 		public string email { get; set; }
 
-		[DisplayName("Total vendido")]
 		public decimal totalVendido { get; set; }
 
-		//Relacion un usuario para muchos carritos
-		public virtual ICollection<Carrito> Carritos { get; set; }
-		
-		//Relacion un usuario para muchos favoritos
-		public virtual ICollection<Favorito> Favoritos { get; set; }
+		//Relacionado a varios carritos.
+		public virtual ICollection<Carrito> carritos { get; set; }
 	}
 }
