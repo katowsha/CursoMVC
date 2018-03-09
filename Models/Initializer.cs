@@ -16,7 +16,8 @@ namespace CursoMVC.Models
 				new Usuario
 				{
 					nombre = "Juan",
-					usuario = "juan",
+					apellidop = "lopez",
+					apellidom = "juarez",
 					password = "j1",
 					direccion = "Av. Las Palmas 123",
 					telefono = "1234-5678",
@@ -26,7 +27,8 @@ namespace CursoMVC.Models
 				new Usuario
 				{
 					nombre = "Maria",
-					usuario = "mariaa",
+					apellidop = "ladel",
+					apellidom = "barrio",
 					password = "mmm1",
 					direccion = "Av. zapata 123",
 					telefono = "134234-5678",

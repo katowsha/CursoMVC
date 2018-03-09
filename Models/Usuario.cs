@@ -22,12 +22,20 @@ namespace CursoMVC.Models
 		[StringLength(50)]
 		public string nombre { get; set; }
 
-		[Required(ErrorMessage = "Proporcione un nombre de usuario.")]
+		[Required(ErrorMessage = "Proporcione el apellido p.")]
+		[DisplayName("Apellido Paterno")]
 		[StringLength(50)]
-		public string usuario { get; set; }
+		public string apellidop { get; set; }
 
+		[Required(ErrorMessage = "Proporcione el apellido m.")]
+		[DisplayName("Apellido Materno")]
+		[StringLength(50)]
+		public string apellidom { get; set; }
+
+		[DisplayName("Contraseña")]
 		[Required(ErrorMessage = "Proporcione una contraseña.")]
 		[StringLength(10)]
+		[DataType(DataType.Password)]
 		public string password { get; set; }
 
 		[DisplayName("Dirección")]
@@ -39,6 +47,7 @@ namespace CursoMVC.Models
 		public string telefono { get; set; }
 
 		[DisplayName("Correo electrónico")]
+		[DataType(DataType.EmailAddress)]
 		public string email { get; set; }
 
 		[DisplayName("Total vendido")]
