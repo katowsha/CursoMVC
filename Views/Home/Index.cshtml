@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>@Html.Raw(ViewBag.Titulo)</p>
+<p>Lo mas new</p>
+<div>
+    @foreach(var item in ViewBag.ProductosNuevos)
+    {
+        <p>@item.categoria.nombre</p>
+        <p>@item.nombre</p>
+        <p>
+            @if (item.imagen != null)
+            {
+                <img width="100" src="@Url.Action("GetImage", "Producto", new { id = item.productoID })" />
+            }
+        </p>
+        <p>@item.precioLista</p>
+
+        @Html.ActionLink("Añadir a carrito", "Index", "Carrito");
+    }
+</div>
+<p>
+    @Html.ActionLink("Ir a galeria","Index","Producto");
+</p>

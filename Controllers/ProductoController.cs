@@ -50,7 +50,7 @@ namespace CursoMVC.Controllers
         // GET: Producto/Edit/5
         public ActionResult Edit(int id)
         {
-            return Content("Aun no se ha codificado la vista para edicion...");
+            return View();
         }
 
         // POST: Producto/Edit/5

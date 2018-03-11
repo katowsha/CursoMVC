@@ -17,7 +17,7 @@ namespace CursoMVC.Models
 		public int categoriaID { get; set; }
 
 		[Required(ErrorMessage = "Proporcione un nombre.")]
-		[DisplayName("Nombre")]
+		[DisplayName("Categorìa")]
 		[StringLength(100)]
 		public string nombre { get; set; }
 
