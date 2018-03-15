@@ -1,102 +1,145 @@
-﻿using CursoMVC.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using CursoMVC.Models;
 
 namespace CursoMVC.Controllers
 {
     public class ProductoController : Controller
     {
-		private CursoMVCContext context = new CursoMVCContext();
-		// GET: Producto
-		public ActionResult Index()
+        private CursoMVCContext db = new CursoMVCContext();
+
+        // GET: Producto
+        public ActionResult Index()
         {
-            return View("Index",context.Productos.ToList());
+            var productos = db.Productos.Include(p => p.categoria);
+            return View(productos.ToList());
         }
 
         // GET: Producto/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
-			Producto producto = context.Productos.Find(id);
-			if (producto == null)
-				return HttpNotFound();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Producto producto = db.Productos.Find(id);
+            if (producto == null)
+            {
+                return HttpNotFound();
+            }
             return View(producto);
         }
 
         // GET: Producto/Create
         public ActionResult Create()
         {
-            return View();
+            ViewBag.categoriaID = new SelectList(db.Categorias, "categoriaID", "nombre");
+			Producto producto = new Producto();
+			producto.fechaCreacion = DateTime.Now;
+            return View(producto);
         }
 
         // POST: Producto/Create
+        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
+        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Producto producto, HttpPostedFileBase imagen)
 
+		{
+            if (ModelState.IsValid)
+            {
+				if (imagen != null)
+				{
+					producto.tipoImagen = imagen.ContentType;
+					producto.imagen = new byte[imagen.ContentLength];
+					imagen.InputStream.Read(producto.imagen, 0, imagen.ContentLength);
+				}
+				db.Productos.Add(producto);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            ViewBag.categoriaID = new SelectList(db.Categorias, "categoriaID", "nombre", producto.categoriaID);
+            return View(producto);
         }
 
         // GET: Producto/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Producto producto = db.Productos.Find(id);
+            if (producto == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.categoriaID = new SelectList(db.Categorias, "categoriaID", "nombre", producto.categoriaID);
+            return View(producto);
         }
 
         // POST: Producto/Edit/5
+        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
+        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "productoID,nombre,imagen,tipoImagen,descripcion,precioLista,categoriaID,activo,enAlmacen,fechaCreacion")] Producto producto)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                db.Entry(producto).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            ViewBag.categoriaID = new SelectList(db.Categorias, "categoriaID", "nombre", producto.categoriaID);
+            return View(producto);
         }
 
         // GET: Producto/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Producto producto = db.Productos.Find(id);
+            if (producto == null)
+            {
+                return HttpNotFound();
+            }
+            return View(producto);
         }
 
         // POST: Producto/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            Producto producto = db.Productos.Find(id);
+            db.Productos.Remove(producto);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
+
 		public FileContentResult GetImage(int id)
 		{
-			Producto producto = context.Productos.Find(id);
+			Producto producto = db.Productos.Find(id);
 			if (producto != null)
+			{
 				return File(producto.imagen, producto.tipoImagen);
+			}
 			else
+			{
 				return null;
+			}
 		}
 
 		public ActionResult Fabrica(int id)
@@ -104,7 +147,13 @@ namespace CursoMVC.Controllers
 			return new RedirectResult("http://www.google.com");
 		}
 
-		
-
-	}
+		protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+    }
 }

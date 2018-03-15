@@ -49,7 +49,6 @@ namespace CursoMVC.Models
 		public bool enAlmacen { get; set; }
 
 		[DataType(DataType.DateTime)]
-		[DisplayFormat(DataFormatString = "{0:MM/dd/yy}")]
 		[DisplayName("Fecha de creación")]
 		public DateTime fechaCreacion { get; set; }
 
