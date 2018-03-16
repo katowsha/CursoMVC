@@ -91,11 +91,17 @@ namespace CursoMVC.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "productoID,nombre,imagen,tipoImagen,descripcion,precioLista,categoriaID,activo,enAlmacen,fechaCreacion")] Producto producto)
+        public ActionResult Edit(Producto producto, HttpPostedFileBase imagen)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(producto).State = EntityState.Modified;
+				if (imagen != null)
+				{
+					producto.tipoImagen = imagen.ContentType;
+					producto.imagen = new byte[imagen.ContentLength];
+					imagen.InputStream.Read(producto.imagen, 0, imagen.ContentLength);
+				}
+				db.Entry(producto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
