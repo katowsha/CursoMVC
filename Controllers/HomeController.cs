@@ -19,7 +19,7 @@ namespace CursoMVC.Controllers
 				orderby p.fechaCreacion descending
 				select p).Take(3).ToList();
 
-			ViewBag.Titulo = "<b> Bienvenido a Office Diput </b>";
+			ViewBag.Titulo = "<h1> Bienvenido a Office Diput </h1>";
 			ViewBag.ProductosNuevos = productos;
 
 			return View();
