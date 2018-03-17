@@ -14,7 +14,7 @@ namespace CursoMVC.Models
 			productos = new HashSet<Producto>();
 		}
 
-		public int categoriaID { get; set; }
+		public Guid categoriaID { get; set; }
 
 		[Required(ErrorMessage = "Proporcione un nombre.")]
 		[DisplayName("Categorìa")]

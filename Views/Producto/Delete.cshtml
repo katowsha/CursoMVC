@@ -33,7 +33,10 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.imagen)
+            @if (Model.imagen != null)
+             {
+            <img width="500" src="@Url.Action("GetImage", "Producto", new { id = @Model.productoID })">
+             }
         </dd>
 
         <dt>

@@ -15,6 +15,7 @@ namespace CursoMVC.Models
 			{
 				new Usuario
 				{
+					usuarioID = Guid.NewGuid(),
 					nombre = "Juan",
 					apellidop = "lopez",
 					apellidom = "juarez",
@@ -26,6 +27,7 @@ namespace CursoMVC.Models
 
 				new Usuario
 				{
+					usuarioID = Guid.NewGuid(),
 					nombre = "Maria",
 					apellidop = "ladel",
 					apellidom = "barrio",
@@ -39,16 +41,19 @@ namespace CursoMVC.Models
 
 			usuarios.ForEach(s => context.Usuarios.Add(s));
 			context.SaveChanges();
-
+			Guid cat1 = Guid.NewGuid();
+			Guid cat2 = Guid.NewGuid();
 			var categorias = new List<Categoria>
 			{
 				new Categoria
 				{
+					categoriaID = cat1,
 					nombre = "Utiles escolares",
 					fechaCreacion = DateTime.Now
 				},
 				new Categoria
 				{
+					categoriaID = cat2,
 					nombre = "Accesorios",
 					fechaCreacion = DateTime.Now
 				}
@@ -60,34 +65,37 @@ namespace CursoMVC.Models
 			var productos = new List<Producto>
 			{
 				new Producto {
+					productoID = Guid.NewGuid(),
 					nombre = "Colores",
 					descripcion = "Juego de 12 colores",
 					precioLista = 20.0m,
 					imagen = getFileBytes("\\Imagenes\\colores.jpg"),
 					tipoImagen = "image/jpeg",
-					categoriaID = 1,
+					categoriaID = cat1,
 					activo = true,
 					enAlmacen = true,
 					fechaCreacion = DateTime.Now
 				},
 				new Producto {
+					productoID = Guid.NewGuid(),
 					nombre = "Tijeras",
 					descripcion = "Tijeras metálicas",
 					precioLista = 25.0m,
 					imagen = getFileBytes("\\Imagenes\\tijeras.jpg"),
 					tipoImagen = "image/jpeg",
-					categoriaID = 1,
+					categoriaID = cat1,
 					activo = true,
 					enAlmacen = true,
 					fechaCreacion = DateTime.Now
 				},
 				new Producto {
+					productoID = Guid.NewGuid(),
 					nombre = "Mochila",
 					descripcion = "Mochila azul",
 					precioLista = 200.0m,
 					imagen = getFileBytes("\\Imagenes\\mochila.jpg"),
 					tipoImagen = "image/jpeg",
-					categoriaID = 2,
+					categoriaID = cat2,
 					activo = true,
 					enAlmacen = true,
 					fechaCreacion = DateTime.Now

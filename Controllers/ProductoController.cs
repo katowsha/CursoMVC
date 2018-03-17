@@ -22,7 +22,7 @@ namespace CursoMVC.Controllers
         }
 
         // GET: Producto/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(Guid? id)
         {
             if (id == null)
             {
@@ -42,6 +42,7 @@ namespace CursoMVC.Controllers
             ViewBag.categoriaID = new SelectList(db.Categorias, "categoriaID", "nombre");
 			Producto producto = new Producto();
 			producto.fechaCreacion = DateTime.Now;
+			producto.productoID = Guid.NewGuid();
             return View(producto);
         }
 
@@ -71,7 +72,7 @@ namespace CursoMVC.Controllers
         }
 
         // GET: Producto/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(Guid? id)
         {
             if (id == null)
             {
@@ -110,7 +111,7 @@ namespace CursoMVC.Controllers
         }
 
         // GET: Producto/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(Guid? id)
         {
             if (id == null)
             {
@@ -127,7 +128,7 @@ namespace CursoMVC.Controllers
         // POST: Producto/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(Guid id)
         {
             Producto producto = db.Productos.Find(id);
             db.Productos.Remove(producto);
@@ -135,7 +136,7 @@ namespace CursoMVC.Controllers
             return RedirectToAction("Index");
         }
 
-		public FileContentResult GetImage(int id)
+		public FileContentResult GetImage(Guid id)
 		{
 			Producto producto = db.Productos.Find(id);
 			if (producto != null)
@@ -148,7 +149,7 @@ namespace CursoMVC.Controllers
 			}
 		}
 
-		public ActionResult Fabrica(int id)
+		public ActionResult Fabrica(Guid id)
 		{
 			return new RedirectResult("http://www.google.com");
 		}

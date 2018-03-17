@@ -21,7 +21,7 @@ namespace CursoMVC.Controllers
         }
 
         // GET: Usuarios/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(Guid? id)
         {
             if (id == null)
             {
@@ -38,7 +38,9 @@ namespace CursoMVC.Controllers
         // GET: Usuarios/Create
         public ActionResult Create()
         {
-            return View();
+			Usuario usuario = new Usuario();
+			usuario.usuarioID = Guid.NewGuid();
+            return View(usuario);
         }
 
         // POST: Usuarios/Create
@@ -59,7 +61,7 @@ namespace CursoMVC.Controllers
         }
 
         // GET: Usuarios/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(Guid? id)
         {
             if (id == null)
             {
@@ -90,7 +92,7 @@ namespace CursoMVC.Controllers
         }
 
         // GET: Usuarios/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(Guid? id)
         {
             if (id == null)
             {
@@ -107,7 +109,7 @@ namespace CursoMVC.Controllers
         // POST: Usuarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(Guid id)
         {
             Usuario usuario = db.Usuarios.Find(id);
             db.Usuarios.Remove(usuario);

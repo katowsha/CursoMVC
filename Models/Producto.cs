@@ -14,7 +14,7 @@ namespace CursoMVC.Models
 			comentarios = new HashSet<Comentario>();
 		}
 
-		public int productoID { get; set; }
+		public Guid productoID { get; set; }
 
 		[Required(ErrorMessage = "Proporcione un nombre.")]
 		[DisplayName("Nombre")]
@@ -35,12 +35,12 @@ namespace CursoMVC.Models
 		[Required(ErrorMessage = "Proporcione un precio.")]
 		[DisplayName("Precio de Lista")]
 		[Range(0, 10000)]
-		[ValidaMultiploDe(5)]
+		//[ValidaMultiploDe(5)]
 		public decimal precioLista { get; set; }
 
 		[DisplayName("Categoría")]
 		[Required(ErrorMessage = "Seleccione una categoría.")]
-		public int categoriaID { get; set; }
+		public Guid categoriaID { get; set; }
 
 		[DisplayName("Activo")]
 		public bool activo { get; set; }

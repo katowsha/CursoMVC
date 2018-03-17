@@ -15,7 +15,7 @@ namespace CursoMVC.Models
 			favoritos = new HashSet<Favorito>();
 		}
 
-		public int usuarioID { get; set; }
+		public Guid usuarioID { get; set; }
 
 		[Required(ErrorMessage = "Proporcione el nombre.")]
 		[DisplayName("Nombre")]

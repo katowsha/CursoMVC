@@ -21,7 +21,7 @@ namespace CursoMVC.Controllers
         }
 
         // GET: Categoria/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(Guid? id)
         {
             if (id == null)
             {
@@ -38,7 +38,10 @@ namespace CursoMVC.Controllers
         // GET: Categoria/Create
         public ActionResult Create()
         {
-            return View();
+			Categoria categoria = new Categoria();
+			categoria.fechaCreacion = DateTime.Now;
+			categoria.categoriaID = Guid.NewGuid();
+            return View(categoria);
         }
 
         // POST: Categoria/Create
@@ -59,7 +62,7 @@ namespace CursoMVC.Controllers
         }
 
         // GET: Categoria/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(Guid? id)
         {
             if (id == null)
             {
@@ -90,7 +93,7 @@ namespace CursoMVC.Controllers
         }
 
         // GET: Categoria/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(Guid? id)
         {
             if (id == null)
             {
@@ -107,7 +110,7 @@ namespace CursoMVC.Controllers
         // POST: Categoria/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(Guid id)
         {
             Categoria categoria = db.Categorias.Find(id);
             db.Categorias.Remove(categoria);
