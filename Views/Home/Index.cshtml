@@ -5,8 +5,8 @@
 }
 <br />
 <p>@Html.Raw(ViewBag.Titulo)</p>
-<p>Lo mas new</p>
-<div>
+<h3>Lo mas new</h3>
+<span>
     @foreach(var item in ViewBag.ProductosNuevos)
     {
         <p>@item.categoria.nombre</p>
@@ -21,7 +21,7 @@
 
         @Html.ActionLink("Añadir a carrito", "Index", "Carrito");
     }
-</div>
+</span>
 <p>
     @Html.ActionLink("Ir a galeria","Index","Producto");
 </p>

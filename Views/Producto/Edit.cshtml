@@ -20,7 +20,7 @@
     }
 
 </script>
-<h2>Edit</h2>
+<h2>Edicion de un Producto</h2>
 
 @using (Html.BeginForm("Edit", "Producto", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -30,7 +30,6 @@
     @Html.HiddenFor(model => model.productoID)
 
     <div class="form-horizontal">
-        <h4>Producto</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.productoID)
